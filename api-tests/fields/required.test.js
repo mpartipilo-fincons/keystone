@@ -8,6 +8,7 @@ multiAdapterRunners().map(({ runner, adapterName }) =>
     testModules
       .map(require)
       .filter(({ skipRequiredTest }) => !skipRequiredTest)
+      .filter(({ name }) => !['Decimal', 'MongoId'].includes(name))
       .forEach(mod => {
         describe(`${mod.name} - isRequired`, () => {
           const keystoneTestWrapper = testFn =>

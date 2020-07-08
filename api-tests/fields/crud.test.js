@@ -20,6 +20,7 @@ multiAdapterRunners().map(({ runner, adapterName }) =>
     testModules
       .map(require)
       .filter(({ skipCrudTest }) => !skipCrudTest)
+      .filter(({ name }) => !['Decimal'].includes(name))
       .forEach(mod => {
         const listKey = 'Test';
         const keystoneTestWrapper = (testFn = () => {}) =>
