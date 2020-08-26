@@ -2,7 +2,13 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-import { createItem, getItem, getItems, updateItem } from '@keystonejs/server-side-graphql-client';
+import {
+  createItem,
+  deleteItem,
+  getItem,
+  getItems,
+  updateItem,
+} from '@keystonejs/server-side-graphql-client';
 import { LocationGoogle } from './';
 
 export const name = 'Location';
@@ -113,7 +119,7 @@ export const crudTests = withKeystone => {
       const items = await getItems({
         keystone,
         listKey,
-        returnFields: 'id venue { googlePlaceID }',
+        returnFields: 'id name venue { googlePlaceID }',
         sortBy: 'name_ASC',
       });
 
@@ -213,4 +219,28 @@ export const crudTests = withKeystone => {
       )
     );
   });
+
+  test(
+    'Delete',
+    withKeystone(
+      withHelpers(async ({ keystone, items, listKey }) => {
+        const data = await deleteItem({
+          keystone,
+          listKey,
+          itemId: items[0].id,
+          returnFields: 'name venue { googlePlaceID }',
+        });
+        expect(data).not.toBe(null);
+        expect(data.name).toBe(items[0].name);
+        expect(data.venue.googlePlaceID).toBe(items[0].venue.googlePlaceID);
+
+        const allItems = await getItems({
+          keystone,
+          listKey,
+          returnFields: 'name venue { googlePlaceID }',
+        });
+        expect(allItems).toEqual(expect.not.arrayContaining([data]));
+      })
+    )
+  );
 };
