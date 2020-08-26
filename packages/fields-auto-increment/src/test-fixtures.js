@@ -1,4 +1,10 @@
-import { createItem, getItem, getItems, updateItem } from '@keystonejs/server-side-graphql-client';
+import {
+  createItem,
+  deleteItem,
+  getItem,
+  getItems,
+  updateItem,
+} from '@keystonejs/server-side-graphql-client';
 import { Text } from '@keystonejs/fields';
 import { AutoIncrement } from './index';
 
@@ -206,7 +212,7 @@ export const crudTests = withKeystone => {
         keystone,
         listKey,
         sortBy: 'name_ASC',
-        returnFields: 'id orderNumber',
+        returnFields: 'id name orderNumber',
       });
       return wrappedFn({ keystone, listKey, items });
     };
@@ -294,4 +300,27 @@ export const crudTests = withKeystone => {
       )
     );
   });
+  test(
+    'Delete',
+    withKeystone(
+      withHelpers(async ({ keystone, items, listKey }) => {
+        const data = await deleteItem({
+          keystone,
+          listKey,
+          itemId: items[0].id,
+          returnFields: 'name orderNubmer',
+        });
+        expect(data).not.toBe(null);
+        expect(data.name).toBe(items[0].name);
+        expect(data.orderNubmer).toBe(items[0].orderNubmer);
+
+        const allItems = await getItems({
+          keystone,
+          listKey,
+          returnFields: 'name orderNubmer',
+        });
+        expect(allItems).toEqual(expect.not.arrayContaining([data]));
+      })
+    )
+  );
 };
