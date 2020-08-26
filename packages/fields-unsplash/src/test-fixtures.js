@@ -1,6 +1,12 @@
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-import { createItem, getItem, getItems, updateItem } from '@keystonejs/server-side-graphql-client';
+import {
+  createItem,
+  deleteItem,
+  getItem,
+  getItems,
+  updateItem,
+} from '@keystonejs/server-side-graphql-client';
 import { Unsplash } from './';
 
 export const name = 'Unsplash';
@@ -9,6 +15,7 @@ export const supportsUnique = false;
 export const skipRequiredTest = false;
 export const exampleValue = 'U0tBTn8UR8I';
 export const exampleValue2 = 'xrVDYZRGdw4';
+export const hasSubfields = true;
 export const fieldConfig = {
   accessKey: process.env.UNSPLASH_KEY,
   secretKey: process.env.UNSPLASH_SECRET,
@@ -39,7 +46,7 @@ export const filterTests = withKeystone => {
     expect(
       await getItems({
         keystone,
-        listKey: 'test',
+        listKey: 'Test',
         where,
         returnFields: 'name heroImage { unsplashId }',
         sortBy,
@@ -114,7 +121,7 @@ export const crudTests = withKeystone => {
       const items = await getItems({
         keystone,
         listKey,
-        returnFields: 'id heroImage { unsplashId }',
+        returnFields: 'id name heroImage { unsplashId }',
         sortBy: 'name_ASC',
       });
 
@@ -214,4 +221,28 @@ export const crudTests = withKeystone => {
       )
     );
   });
+
+  test(
+    'Delete',
+    withKeystone(
+      withHelpers(async ({ keystone, items, listKey }) => {
+        const data = await deleteItem({
+          keystone,
+          listKey,
+          itemId: items[0].id,
+          returnFields: 'name heroImage { unsplashId }',
+        });
+        expect(data).not.toBe(null);
+        expect(data.name).toBe(items[0].name);
+        expect(data.heroImage.unsplashId).toBe(items[0].heroImage.unsplashId);
+
+        const allItems = await getItems({
+          keystone,
+          listKey,
+          returnFields: 'name heroImage { unsplashId }',
+        });
+        expect(allItems).toEqual(expect.not.arrayContaining([data]));
+      })
+    )
+  );
 };
