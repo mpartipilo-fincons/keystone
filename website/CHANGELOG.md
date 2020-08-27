@@ -1,5 +1,20 @@
 # @keystonejs/website
 
+## 5.3.8
+
+### Patch Changes
+
+- [`890f13834`](https://github.com/keystonejs/keystone/commit/890f1383421f4c3371e240ef1dca2eaaa808cb54) [#3449](https://github.com/keystonejs/keystone/pull/3449) Thanks [@renovate](https://github.com/apps/renovate)! - Updated dependency `@reach/router` to `^1.3.4`.
+
+* [`6cb4476ff`](https://github.com/keystonejs/keystone/commit/6cb4476ff15923933862c1cd7d4b1ade794106c6) [#3481](https://github.com/keystonejs/keystone/pull/3481) Thanks [@Noviny](https://github.com/Noviny)! - Updated dependencies through a major version - this shouldn't require change by consumers.
+
+- [`5935b89f8`](https://github.com/keystonejs/keystone/commit/5935b89f8862b36f14d09da68f056f759a860f3e) [#3477](https://github.com/keystonejs/keystone/pull/3477) Thanks [@Noviny](https://github.com/Noviny)! - Updating dependencies:
+
+  These changes bring the keystone dev experience inline with installing keystone from npm :D
+
+- Updated dependencies [[`5935b89f8`](https://github.com/keystonejs/keystone/commit/5935b89f8862b36f14d09da68f056f759a860f3e)]:
+  - @arch-ui/input@0.1.11
+
 ## 5.3.7
 
 ### Patch Changes

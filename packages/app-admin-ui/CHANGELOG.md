@@ -1,5 +1,43 @@
 # @keystonejs/app-admin-ui
 
+## 7.3.3
+
+### Patch Changes
+
+- [`5935b89f8`](https://github.com/keystonejs/keystone/commit/5935b89f8862b36f14d09da68f056f759a860f3e) [#3477](https://github.com/keystonejs/keystone/pull/3477) Thanks [@Noviny](https://github.com/Noviny)! - Updating dependencies:
+
+  These changes bring the keystone dev experience inline with installing keystone from npm :D
+
+* [`877a5a90d`](https://github.com/keystonejs/keystone/commit/877a5a90d608f0a13b6c0ea103cb96e3ac2caacc) [#3438](https://github.com/keystonejs/keystone/pull/3438) Thanks [@renovate](https://github.com/apps/renovate)! - Updated Apollo GraphQL package dependencies.
+
+- [`0153168d7`](https://github.com/keystonejs/keystone/commit/0153168d73ce8cd7ede4eb9c8518e5e2bf859709) [#3456](https://github.com/keystonejs/keystone/pull/3456) Thanks [@renovate](https://github.com/apps/renovate)! - Updated dependency `apply-ref` to `^0.2.3`.
+
+- Updated dependencies [[`6cb4476ff`](https://github.com/keystonejs/keystone/commit/6cb4476ff15923933862c1cd7d4b1ade794106c6), [`5935b89f8`](https://github.com/keystonejs/keystone/commit/5935b89f8862b36f14d09da68f056f759a860f3e), [`db0797f7f`](https://github.com/keystonejs/keystone/commit/db0797f7f442c2c42cc941633930de527c722f48), [`ac44568f9`](https://github.com/keystonejs/keystone/commit/ac44568f91fd54ccbc39accf83bcfb3276ce1a72), [`877a5a90d`](https://github.com/keystonejs/keystone/commit/877a5a90d608f0a13b6c0ea103cb96e3ac2caacc), [`483b20ec5`](https://github.com/keystonejs/keystone/commit/483b20ec53ff89f1d026c0495fdae5df60a7cf59), [`ea367f759`](https://github.com/keystonejs/keystone/commit/ea367f7594f47efc3528d9917cce010b3a16bf4d), [`69d627813`](https://github.com/keystonejs/keystone/commit/69d627813adfc10d29707f5c882ca15621de12a5), [`0153168d7`](https://github.com/keystonejs/keystone/commit/0153168d73ce8cd7ede4eb9c8518e5e2bf859709)]:
+  - @arch-ui/confirm@0.0.20
+  - @arch-ui/dialog@0.0.22
+  - @arch-ui/drawer@0.0.22
+  - @arch-ui/dropdown@0.0.19
+  - @arch-ui/popout@0.0.20
+  - @keystonejs/fields@17.1.0
+  - @keystonejs/utils@5.4.3
+  - @arch-ui/alert@0.0.18
+  - @arch-ui/badge@0.0.17
+  - @arch-ui/button@0.0.21
+  - @arch-ui/card@0.0.15
+  - @arch-ui/controls@0.1.9
+  - @arch-ui/fields@3.0.4
+  - @arch-ui/input@0.1.11
+  - @arch-ui/layout@0.2.14
+  - @arch-ui/loading@0.0.18
+  - @arch-ui/lozenge@0.0.17
+  - @arch-ui/navbar@0.1.12
+  - @arch-ui/options@0.0.23
+  - @arch-ui/pagination@0.0.25
+  - @arch-ui/pill@0.1.17
+  - @arch-ui/tooltip@0.1.13
+  - @arch-ui/typography@0.0.18
+  - @keystonejs/session@8.1.1
+
 ## 7.3.2
 
 ### Patch Changes
